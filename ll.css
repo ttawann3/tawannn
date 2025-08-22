@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  background-color: #ff66cc;
+  font-family: sans-serif;
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.nav-left {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.home {
+  background: linear-gradient(45deg, #b46eff, #9a7fff);
+}
+
+.profile {
+  background-color: #a6daf3;
+  color: white;
+}
+
+.talent {
+  background-color: #ff9f80;
+  color: white;
+}
+
+.performance {
+  background-color: #ffd59f;
+  color: white;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.name-tag {
+  background-color: #bfc68f;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon div {
+  width: 30px;
+  height: 5px;
+  background-color: #444;
+  border-radius: 5px;
+}
+
+/* Main frame and content */
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame {
+  background-color: #ff99cc;
+  width: 90%;
+  height: 75%;
+  margin: 40px auto;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.text-wrapper {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  background-color: #ff99cc;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Name with fancy font */
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 100px;
+  color: #555066;
+  position: relative;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 2;
+  text-align: center;
+}
+
+.name:hover {
+  transform: scale(1.05);
+}
+
+.name .capital {
+  font-size: 1.2em;
+}
+
+/* Crown */
+.crown {
+  position: absolute;
+  top: -30px;
+  left: 105px;
+  width: 36px;
+  height: 20px;
+  background-color: #fceef2;
+  clip-path: polygon(0 100%, 20% 30%, 33% 100%, 50% 30%, 66% 100%, 80% 30%, 100% 100%);
+}
+
+/* Gems */
+.gems {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gem {
+  background-color: #fceef2;
+  transform: rotate(45deg);
+}
+
+.gem.large {
+  width: 20px;
+  height: 20px;
+}
+
+.gem.small {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+}
+
+/* Line under name */
+.line-under-wrapper {
+  margin-top: -45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.line-under {
+  width: 600px;
+  height: 4px;
+  background-color: #fceef2;
+}
+
+.diamond {
+  width: 20px;
+  height: 20px;
+  background-color: #fceef2;
+  transform: rotate(45deg);
+}
+/* ซูมเฉพาะ element ที่มีข้อความ */
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover,
+p:hover,
+a:hover,
+span:hover,
+.name-tag:hover,
+.nav-btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/* ดาวเล็กที่ตามหลังเมาส์ */
+.trail-star {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: yellow;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 
+                    68% 57%, 79% 91%, 50% 70%, 
+                    21% 91%, 32% 57%, 2% 35%, 
+                    39% 35%);
+  pointer-events: none;
+  animation: starFade 0.8s forwards;
+}
+
+@keyframes starFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.2) translateY(-20px); }
+}
+/* ซ่อนเมาส์จริง */
+body {
+  cursor: none;
+}
+
+/* ดาวเล็กที่ตามหลังเมาส์ */
+.trail-star {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: yellow;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 
+                    68% 57%, 79% 91%, 50% 70%, 
+                    21% 91%, 32% 57%, 2% 35%, 
+                    39% 35%);
+  pointer-events: none;
+  animation: starFade 0.8s forwards;
+  z-index: 9998;
+}
+
+@keyframes starFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.2) translateY(-20px); }
+}
+.nav-left .nav-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff; /* ปรับสีตามต้องการ */
+  transition: transform 0.3s ease; /* ทำให้การซูมลื่น */
+}
+
+.nav-left .nav-btn:hover {
+  transform: scale(1.2); /* ขยายเป็น 1.2 เท่าเมื่อชี้ */
+}
+/* ให้ canvas หิมะอยู่หน้าทุกอย่าง แต่ไม่บังการคลิก */
+#snow-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;           /* อยู่หน้าข้อความทั้งหมด */
+  pointer-events: none;    /* ไม่บังการคลิก/เลือกข้อความ */
+}

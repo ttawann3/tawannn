@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap'); 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Great Vibes', cursive;
+}
+
+.container {
+  background-color: #ff66cc;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame {
+  background-color: #ff99cc;
+  width: 90%;
+  height: 90%;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.text-wrapper {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  background-color: #ff99cc;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-size: 100px;
+  color: #555066;
+  position: relative;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.name:hover {
+  transform: scale(1.1);
+}
+
+.name .capital {
+  font-size: 1.2em;
+  color: #f32828;
+}
+
+.crown {
+  position: absolute;
+  top: -30px;
+  left: 105px;
+  width: 36px;
+  height: 20px;
+  background-color: #fceef2;
+  clip-path: polygon(0 100%, 20% 30%, 33% 100%, 50% 30%, 66% 100%, 80% 30%, 100% 100%);
+}
+
+.gems {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gem {
+  background-color: #fceef2;
+  transform: rotate(45deg);
+}
+
+.gem.large {
+  width: 20px;
+  height: 20px;
+}
+
+.gem.small {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+}
+
+.line-under-wrapper {
+  margin-top: -45px; /* ขยับขึ้นให้อยู่ใต้ตัว Y */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.line-under {
+  width: 600px; /* ขยายความยาว */
+  height: 4px;
+  background-color: #fceef2;
+}
+
+.diamond {
+  width: 20px;
+  height: 20px;
+  background-color: #fceef2;
+  transform: rotate(45deg);
+}
+/* ให้ canvas หิมะอยู่หน้าทุกอย่าง แต่ไม่บังการคลิก */
+#snow-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;           /* อยู่หน้าข้อความทั้งหมด */
+  pointer-events: none;    /* ไม่บังการคลิก/เลือกข้อความ */
+}
+
+/* เคอร์เซอร์รูปดาวสีเหลือง (SVG data URI) */
+:root {
+  /* ปรับขนาดเคอร์เซอร์ได้โดยเปลี่ยน viewBox/width/height ใน SVG ด้านล่าง */
+  --star-cursor: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 64 64'>\
+    <defs>\
+      <filter id='g'><feGaussianBlur stdDeviation='1.2' /></filter>\
+    </defs>\
+    <polygon points='32,6 38,24 57,24 41,35 47,54 32,43 17,54 23,35 7,24 26,24' fill='%23ffd21f' filter='url(%23g)'/>\
+    <polygon points='32,8 37,23 53,23 39,33 44,48 32,39 20,48 25,33 11,23 27,23' fill='%23ffea52'/>\
+  </svg>") 16 16, auto;
+}
+
+html, body {
+  cursor: var(--star-cursor);
+}
+
+/* ดาวเล็กสีเหลืองที่ตามเมาส์ */
+.trail-star {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  /* วาดดาวด้วย clip-path (5 แฉก) + เงาเรือง */
+  background: #ffeb3b;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  filter: drop-shadow(0 0 4px rgba(255, 223, 0, 0.9));
+  transform: translate(-50%, -50%) scale(1);
+  animation: star-fade 700ms ease-out forwards;
+  z-index: 9999; /* ให้อยู่หน้าข้อความด้วย */
+}
+
+@keyframes star-fade {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  60%  { opacity: 0.7; transform: translate(-50%, -50%) scale(0.85); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
+
+
+h1 {
+  margin: 0 0 0.5rem;
+}
+#tt{
+  color: #555066;
+  text-decoration: none;
+
+}
